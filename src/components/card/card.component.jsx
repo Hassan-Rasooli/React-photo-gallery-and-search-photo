@@ -3,15 +3,15 @@ import './card.style.css'
 
 class Card extends Component {
     render() {
-        const { id, title, thumbnailUrl } = this.props.monster;
+        const { id, firstName, maidenName, image } = this.props.monster;
 
         return (
             <div className="card-container" key={id}>
                 <img
-                    alt={`monster ${title}`}
-                    src={thumbnailUrl}
+                    alt={`monster ${firstName}`}
+                    src={image}
                 />
-                <h2>{title}</h2>
+                <h2>{maidenName}</h2>
             </div>
         )
     }

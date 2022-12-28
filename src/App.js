@@ -12,13 +12,12 @@ class App extends Component {
       searchField: '',
     };
   }
-
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/photos')
+    fetch('https://dummyjson.com/users')
       .then((res) => res.json())
-      .then((photos) =>
+      .then((res) =>
         this.setState(() => {
-          return { monsters: photos }
+          return { monsters: res.users }
         })
       )
   }
@@ -31,14 +30,15 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     console.log('render app')
     const { monsters, searchField } = this.state;
     const { onSearchChange } = this;
 
     const filteredMonsters = monsters.filter((monster) => {
-      return monster.title.toLocaleLowerCase().includes(searchField)
+      return monster.maidenName.toLocaleLowerCase().includes(searchField)
     })
-
+    console.log(filteredMonsters)
     return (
       <div className="App">
 
